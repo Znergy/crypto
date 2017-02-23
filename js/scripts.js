@@ -1,4 +1,4 @@
-/**** First Test ****/
+/**** Not the first step ****/
 
 // wrongly assumed that the first step was breaking down the string into single letters, and then manually setting a row length, which when triggered would save the remaining characters to another array..
 // this may come in later but not before I figure out the math to auto determine row/column size based on starting char count.
@@ -27,9 +27,7 @@
 
 
 
-/**** Second Test Case ****/
-
-// this will take a string, count the length minus the spaces and commas, then use string.length to calculate the necessary rows and columns (eg. 69 = 9 rows, 8 columns)
+/**** First Test Case ****/
 
 // this will take a string of any length, use the total length to determine the total rows and columns needed (eg. 12 = 3x4, 8 = 2x4)
 
@@ -42,9 +40,24 @@ var columns = (string.length / rows);
 console.log("Total Columns: " + columns);
 console.log("Total rows: " + rows);
 
+/**** Second Test Case ****/
 
+// this will take a string, count the length minus the spaces, then use string.length to calculate the necessary rows and columns (eg. 12 = 3x4), if you run this in jsfiddle it will spit out exactly what is taking place.
 
+// this does not implement part of the rows algorithm (rows = rows - 1, http://stackoverflow.com/questions/6377362/calculating-or-rows-and-columns)
 
+var initialString = "12345 67890";
+var stringArray = initialString.split(" ");
+var noSpacesString = stringArray.join("");
+
+var squareRoot = Math.sqrt(noSpacesString.length);
+var rows = Math.floor(squareRoot);
+var columns = (noSpacesString.length / rows);
+
+console.log("Initial String: " + initialString + ", length: " + initialString.length);
+console.log("String w/o spaces: " + noSpacesString + ", length: " + noSpacesString.length);
+console.log("Total Columns: " + columns);
+console.log("Total rows: " + rows);
 
 
 
